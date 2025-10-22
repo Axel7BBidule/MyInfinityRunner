@@ -15,7 +15,9 @@ Temps réellement passé :
     6. Collectables ‘’gros’’ à récupérer  
 
 Étape 2 : Création des Obstacles et de l’environnement
+
 Temps estimé : 6H
+
 Temps réellement passé : 
 
     1. Collecte et enregistrement des données 
@@ -28,16 +30,22 @@ Temps réellement passé :
     3. Grille laser 
 
 Étape 3 : mécaniques spéciales 
+
 Temps estimé : 8H
+
 Temps réellement passé : 
+
 
     1. Pseudopode 
     2. Jauge de Biomasse 
     3. Changement de forme 
 
 Étape 4 : mécaniques avancées (optionnelle)
+
 Temps estimé : 9H
+
 Temps réellement passé : 
+
 
     1. Obstacles avancés 
     2. Pylône désactivable 
