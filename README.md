@@ -1,6 +1,8 @@
 
 Étape 1 : Création des mécaniques de base 
+
 Temps estimé : 6H
+
 Temps réellement passé : 
 
     1. Déplacement constant en avant du Blob 
