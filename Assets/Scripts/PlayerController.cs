@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 using NUnit.Framework;
-//Test commit
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Crouch Settings")]
     [SerializeField] private float crouchDuration = 3f;
     [SerializeField] private float crouchCooldownDuration = 5f;
-    [SerializeField] private Vector3 crouchScale = new Vector3(2f, 0.5f, 2f);
+
 
     [Header("Transform Settings")]
     [SerializeField] private float transformDuration = 4f;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private bool crouchOnCooldown = false;
     private bool isTransformActive = false;
     private float gravity = 30f;
+    private Vector3 crouchScale = new Vector3(2f, 0.5f, 2f);
 
 
     void Start()

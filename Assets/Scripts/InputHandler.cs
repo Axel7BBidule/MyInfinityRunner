@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    // Référence au PlayerController refactorisé
     [SerializeField] private PlayerController playerController;
 
     private InputAction moveAction;
