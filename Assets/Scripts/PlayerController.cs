@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpCooldown = 3f;
 
-    [Header("Ceiling Detection")]
+    [Header("Layer Detection")]
     [SerializeField] private LayerMask ceilingLayer = 1 << 6;
     [SerializeField] private float ceilingCheckDistance = 0.2f;
+    [SerializeField] private LayerMask planeLayer = 1 << 3;
+    [SerializeField] private float planeCheckDistance = 0.2f;
+    [SerializeField] private BoolEventChannelSO isCeilingEvent;
+    [SerializeField] private BoolEventChannelSO isPlaneEvent;
 
     [Header("Crouch Settings")]
     [SerializeField] private float crouchDuration = 3f;
@@ -67,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
 
         JumpMovement();
+        CheckLayerEvent();
 
         characterController.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
     }
@@ -127,6 +132,30 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(rayOrigin, Vector3.up, ceilingCheckDistance, ceilingLayer);
     }
 
+    private bool IsPlaneAbove()
+    {
+        Vector3 rayOrigin = transform.position - Vector3.up * (characterController.height * 0.5f);
+        return Physics.Raycast(rayOrigin, Vector3.down, planeCheckDistance, planeLayer);
+    }
+
+    private void CheckLayerEvent()
+    {
+        bool isCeilingNow = IsCeilingAbove();
+        bool isPlaneNow = IsPlaneAbove();
+
+        if (isCeilingNow)
+        {
+
+            isCeilingEvent.RaiseEvent(isStickingToCeiling);
+        }
+
+        if (isPlaneNow)
+        {
+
+            isPlaneEvent.RaiseEvent(isPlaneNow);
+        }
+    }
+
     public void Crouch()
     {
         if (!isCrouchingActive && !crouchOnCooldown)
@@ -181,6 +210,7 @@ public class PlayerController : MonoBehaviour
         playerRenderer.material.color = actualColor;
         jumpOnCooldown = false;
     }
+
 
 }
 

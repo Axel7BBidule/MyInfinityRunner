@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private CameraController cameraController;
 
     private InputAction moveAction;
     private InputAction jumpAction;
@@ -39,6 +41,7 @@ public class InputHandler : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         playerController.Jump();
+
     }
 
     private void OnCrouch(InputAction.CallbackContext context)
