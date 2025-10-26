@@ -120,6 +120,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &67816071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 513995483066993847, guid: c5312497de4fcdb4d8b2016800664bb2, type: 3}
@@ -230,6 +231,8 @@ MeshCollider:
   m_Mesh: {fileID: -7173757266376077796, guid: c5312497de4fcdb4d8b2016800664bb2, type: 3}
 =======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1 &188479529
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +265,7 @@ Transform:
   - {fileID: 1521357418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &316808129 stripped
 GameObject:
@@ -392,6 +396,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 =======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1 &330585543
@@ -676,6 +682,7 @@ MonoBehaviour:
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &441640340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1704590946225297046, guid: c5312497de4fcdb4d8b2016800664bb2, type: 3}
@@ -844,6 +851,8 @@ MeshCollider:
   m_Mesh: {fileID: -7173757266376077796, guid: c5312497de4fcdb4d8b2016800664bb2, type: 3}
 =======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +903,11 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &838702555
+=======
+--- !u!1 &1173981895
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 =======
 --- !u!1 &1173981895
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
@@ -906,17 +919,23 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 838702557}
   - component: {fileID: 838702556}
   m_Layer: 0
   m_Name: GameManager
 =======
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   - component: {fileID: 1173981899}
   - component: {fileID: 1173981898}
   - component: {fileID: 1173981897}
   - component: {fileID: 1173981896}
   m_Layer: 6
   m_Name: Cieling
+<<<<<<< HEAD
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,8 +943,13 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &838702556
 MonoBehaviour:
+=======
+--- !u!64 &1173981896
+MeshCollider:
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 =======
 --- !u!64 &1173981896
 MeshCollider:
@@ -934,6 +958,7 @@ MeshCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 838702555}
   m_Enabled: 1
@@ -1160,6 +1185,8 @@ MonoBehaviour:
 --- !u!114 &1180636793
 MonoBehaviour:
 =======
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   m_GameObject: {fileID: 1173981895}
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1178,11 +1205,15 @@ MonoBehaviour:
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1173981897
 MeshRenderer:
+<<<<<<< HEAD
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1180636791}
   m_Enabled: 1
@@ -1195,6 +1226,8 @@ MeshRenderer:
   m_DragThreshold: 10
 --- !u!4 &1180636794
 =======
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   m_GameObject: {fileID: 1173981895}
   m_Enabled: 1
   m_CastShadows: 1
@@ -1243,12 +1276,16 @@ MeshFilter:
   m_GameObject: {fileID: 1173981895}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1173981899
+<<<<<<< HEAD
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1180636791}
   serializedVersion: 2
@@ -1260,6 +1297,8 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
   m_GameObject: {fileID: 1173981895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
@@ -1269,6 +1308,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 188479530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+<<<<<<< HEAD
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1 &1205775902
 GameObject:
@@ -1301,6 +1343,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2017930896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &1261501980 stripped
 GameObject:
@@ -1420,6 +1463,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 26f2a267a87b91d4b98f7a6f5143bb5f, type: 3}
 --- !u!1 &1606945336 stripped
 =======
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1 &1886904166
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 GameObject:
@@ -1882,6 +1927,7 @@ MeshFilter:
   m_GameObject: {fileID: 2017930895}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2094161744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1961,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 =======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1925,9 +1973,12 @@ SceneRoots:
   - {fileID: 2017930896}
   - {fileID: 188479530}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1524104444}
   - {fileID: 838702557}
   - {fileID: 325323398}
   - {fileID: 1180636794}
+=======
+>>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
 =======
 >>>>>>> parent of 92f0b10 (Ajout Scriptable Objet + Event Channell)
