@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
-using NUnit.Framework;
-
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -11,11 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 10f;
-    [SerializeField] private float jumpCooldown = 3f;
-
-    [Header("Ceiling Detection")]
-    [SerializeField] private LayerMask ceilingLayer = 1 << 6;
-    [SerializeField] private float ceilingCheckDistance = 0.2f;
+    [SerializeField] private float gravity = 20f;
 
     [Header("Crouch Settings")]
     [SerializeField] private float crouchDuration = 3f;
@@ -24,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Transform Settings")]
     [SerializeField] private float transformDuration = 4f;
+    [SerializeField] private float cooldownTransform = 6f;
 
     [Header("Debug Colors")]
     [SerializeField] private Color crouchColor = Color.blue;
@@ -34,15 +28,13 @@ public class PlayerController : MonoBehaviour
     private Color actualColor;
 
     private CharacterController characterController;
-    private float verticalVelocity;
     private Vector3 originalScale;
-    private bool isStickingToCeiling = false;
-    private bool jumpOnCooldown = false;
-    private bool isCrouchingActive = false;
+    private bool isCrouching = false;
     private bool crouchOnCooldown = false;
     private bool isTransformActive = false;
-    private float gravity = 30f;
     private Vector3 crouchScale = new Vector3(2f, 0.5f, 2f);
+    private Vector3 velocity;
+    private bool isGrounded;
 
 
     void Start()
@@ -54,92 +46,45 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 moveInput)
     {
+        isGrounded = characterController.isGrounded;
 
         Vector3 directionMove = transform.right * moveInput.x;
         directionMove *= moveSpeed * Time.deltaTime;
 
-
         Vector3 forwardMove = transform.forward * scrollerSpeed * Time.deltaTime;
 
 
-        Vector3 move = directionMove + forwardMove;
+        velocity.y -= gravity * Time.deltaTime;
+
+        Vector3 move = directionMove + forwardMove + velocity * Time.deltaTime;
         characterController.Move(move);
-
-
-        JumpMovement();
-
-        characterController.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
-    }
-
-    private void JumpMovement()
-    {
-        if (isStickingToCeiling)
-        {
-            if (IsCeilingAbove())
-            {
-                Vector3 rayOrigin = transform.position + Vector3.up * (characterController.height * 0.5f);
-                if (Physics.Raycast(rayOrigin, Vector3.up, out RaycastHit hit, ceilingCheckDistance, ceilingLayer))
-                {
-                    float distanceToCeiling = hit.distance;
-                    verticalVelocity = Mathf.Min(0.5f, distanceToCeiling * 10f);
-                }
-            }
-            else
-            {
-                verticalVelocity = 0;
-            }
-        }
-        else
-        {
-            if (verticalVelocity > 0 && IsCeilingAbove())
-            {
-                isStickingToCeiling = true;
-                verticalVelocity = 0;
-            }
-            else
-            {
-                verticalVelocity -= gravity * Time.deltaTime;
-            }
-        }
     }
 
     public void Jump()
     {
-        if (jumpOnCooldown) return;
 
-        if (characterController.isGrounded && !isCrouchingActive)
+        if (!isCrouching && isGrounded)
         {
-            verticalVelocity = jumpForce;
-            isStickingToCeiling = false;
-            StartCoroutine(JumpCooldownCoroutine());
+            Debug.Log("Jump demandée");
+            velocity.y = Mathf.Sqrt(jumpForce * 2f * gravity);
         }
-        else if (isStickingToCeiling && !isCrouchingActive)
-        {
-            verticalVelocity = -jumpForce;
-            isStickingToCeiling = false;
-            StartCoroutine(JumpCooldownCoroutine());
-        }
-    }
-
-    private bool IsCeilingAbove()
-    {
-        Vector3 rayOrigin = transform.position + Vector3.up * (characterController.height * 0.5f);
-        return Physics.Raycast(rayOrigin, Vector3.up, ceilingCheckDistance, ceilingLayer);
     }
 
     public void Crouch()
     {
-        if (!isCrouchingActive && !crouchOnCooldown)
+        if (!isCrouching && !crouchOnCooldown)
         {
+            Debug.Log("Crouch demandée");
             StartCoroutine(CrouchCoroutine());
         }
     }
 
     public void Transform()
     {
-        Debug.Log("Transformation demandée");
-        if (!isCrouchingActive && !isTransformActive)
+
+        if (!isCrouching && !isTransformActive && !crouchOnCooldown)
         {
+            Debug.Log("Transformation demandée");
             StartCoroutine(TransformCoroutine());
         }
     }
@@ -151,20 +96,25 @@ public class PlayerController : MonoBehaviour
         isTransformActive = true;
         playerRenderer.material.color = transformColor;
         yield return new WaitForSeconds(transformDuration);
-        playerRenderer.material.color = actualColor;
+
+        playerRenderer.material.color = cooldownColor;
+        crouchOnCooldown = true;
+        yield return new WaitForSeconds(cooldownTransform);
         isTransformActive = false;
+        playerRenderer.material.color = actualColor;
+        crouchOnCooldown = false;
     }
 
     private IEnumerator CrouchCoroutine()
     {
-        isCrouchingActive = true;
+        isCrouching = true;
         transform.localScale = crouchScale;
 
         yield return new WaitForSeconds(crouchDuration);
 
 
         transform.localScale = originalScale;
-        isCrouchingActive = false;
+        isCrouching = false;
         crouchOnCooldown = true;
         playerRenderer.material.color = cooldownColor;
 
@@ -172,15 +122,8 @@ public class PlayerController : MonoBehaviour
         playerRenderer.material.color = actualColor;
         crouchOnCooldown = false;
     }
-
-    private IEnumerator JumpCooldownCoroutine()
-    {
-        jumpOnCooldown = true;
-        playerRenderer.material.color = cooldownColor;
-        yield return new WaitForSeconds(jumpCooldown);
-        playerRenderer.material.color = actualColor;
-        jumpOnCooldown = false;
-    }
-
 }
+
+
+
 
