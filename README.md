@@ -3,7 +3,7 @@
 
 Temps estimé : 6H
 
-Temps réellement passé : 
+Temps réellement passé : 8h
 
     1. Déplacement constant en avant du Blob 
     2. Déplacements gauche-droite du Blob 
